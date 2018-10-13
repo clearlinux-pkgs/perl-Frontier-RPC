@@ -1,0 +1,9 @@
+0.07b4
+perl(HTTP::Daemon)
+perl(HTTP::Date)
+perl(HTTP::Request)
+perl(LWP::MediaTypes)
+perl(LWP::UserAgent)
+perl(Try::Tiny)
+perl(URI)
+perl(XML::Parser)
