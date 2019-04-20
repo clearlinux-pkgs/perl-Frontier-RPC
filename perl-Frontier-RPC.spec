@@ -4,7 +4,7 @@
 #
 Name     : perl-Frontier-RPC
 Version  : 0.07b4
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/K/KM/KMACLEOD/Frontier-RPC-0.07b4.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/K/KM/KMACLEOD/Frontier-RPC-0.07b4.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libf/libfrontier-rpc-perl/libfrontier-rpc-perl_0.07b4-7.debian.tar.xz
@@ -32,6 +32,7 @@ for implementing servers.  Frontier::RPC uses RPC2 format messages.
 Summary: dev components for the perl-Frontier-RPC package.
 Group: Development
 Provides: perl-Frontier-RPC-devel = %{version}-%{release}
+Requires: perl-Frontier-RPC = %{version}-%{release}
 
 %description dev
 dev components for the perl-Frontier-RPC package.
@@ -50,7 +51,7 @@ license components for the perl-Frontier-RPC package.
 cd ..
 %setup -q -T -D -n Frontier-RPC-0.07b4 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Frontier-RPC-0.07b4/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Frontier-RPC-0.07b4/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
