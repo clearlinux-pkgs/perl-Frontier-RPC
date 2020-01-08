@@ -4,7 +4,7 @@
 #
 Name     : perl-Frontier-RPC
 Version  : 0.07b4
-Release  : 14
+Release  : 15
 URL      : https://cpan.metacpan.org/authors/id/K/KM/KMACLEOD/Frontier-RPC-0.07b4.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/K/KM/KMACLEOD/Frontier-RPC-0.07b4.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libf/libfrontier-rpc-perl/libfrontier-rpc-perl_0.07b4-7.debian.tar.xz
@@ -12,6 +12,7 @@ Summary  : Perl module for RPC over XML
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-1.0
 Requires: perl-Frontier-RPC-license = %{version}-%{release}
+Requires: perl-Frontier-RPC-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(HTTP::Daemon)
 BuildRequires : perl(HTTP::Date)
@@ -46,18 +47,28 @@ Group: Default
 license components for the perl-Frontier-RPC package.
 
 
+%package perl
+Summary: perl components for the perl-Frontier-RPC package.
+Group: Default
+Requires: perl-Frontier-RPC = %{version}-%{release}
+
+%description perl
+perl components for the perl-Frontier-RPC package.
+
+
 %prep
 %setup -q -n Frontier-RPC-0.07b4
-cd ..
-%setup -q -T -D -n Frontier-RPC-0.07b4 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libfrontier-rpc-perl_0.07b4-7.debian.tar.xz
+cd %{_builddir}/Frontier-RPC-0.07b4
 mkdir -p deblicense/
-cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Frontier-RPC-0.07b4/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/Frontier-RPC-0.07b4/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -67,7 +78,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -76,8 +87,8 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Frontier-RPC
-cp COPYING %{buildroot}/usr/share/package-licenses/perl-Frontier-RPC/COPYING
-cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Frontier-RPC/deblicense_copyright
+cp %{_builddir}/Frontier-RPC-0.07b4/COPYING %{buildroot}/usr/share/package-licenses/perl-Frontier-RPC/f5a13608797f9dce482939e43d7594beec511188
+cp %{_builddir}/Frontier-RPC-0.07b4/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Frontier-RPC/5d26a4cb2c5570c5c164b7736663276a02ae3b61
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -90,11 +101,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Apache/XMLRPC.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Frontier/Client.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Frontier/Daemon.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Frontier/RPC2.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Frontier/Responder.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -106,5 +112,13 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Frontier-RPC/COPYING
-/usr/share/package-licenses/perl-Frontier-RPC/deblicense_copyright
+/usr/share/package-licenses/perl-Frontier-RPC/5d26a4cb2c5570c5c164b7736663276a02ae3b61
+/usr/share/package-licenses/perl-Frontier-RPC/f5a13608797f9dce482939e43d7594beec511188
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Apache/XMLRPC.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Frontier/Client.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Frontier/Daemon.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Frontier/RPC2.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Frontier/Responder.pm
