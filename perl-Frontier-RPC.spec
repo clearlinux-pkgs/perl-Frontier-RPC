@@ -4,7 +4,7 @@
 #
 Name     : perl-Frontier-RPC
 Version  : 0.07b4
-Release  : 15
+Release  : 16
 URL      : https://cpan.metacpan.org/authors/id/K/KM/KMACLEOD/Frontier-RPC-0.07b4.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/K/KM/KMACLEOD/Frontier-RPC-0.07b4.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libf/libfrontier-rpc-perl/libfrontier-rpc-perl_0.07b4-7.debian.tar.xz
@@ -88,7 +88,7 @@ make TEST_VERBOSE=1 test
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Frontier-RPC
 cp %{_builddir}/Frontier-RPC-0.07b4/COPYING %{buildroot}/usr/share/package-licenses/perl-Frontier-RPC/f5a13608797f9dce482939e43d7594beec511188
-cp %{_builddir}/Frontier-RPC-0.07b4/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Frontier-RPC/5d26a4cb2c5570c5c164b7736663276a02ae3b61
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-Frontier-RPC/5d26a4cb2c5570c5c164b7736663276a02ae3b61
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -117,8 +117,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Apache/XMLRPC.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Frontier/Client.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Frontier/Daemon.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Frontier/RPC2.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Frontier/Responder.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Apache/XMLRPC.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Frontier/Client.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Frontier/Daemon.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Frontier/RPC2.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Frontier/Responder.pm
