@@ -4,7 +4,7 @@
 #
 Name     : perl-Frontier-RPC
 Version  : 0.07b4
-Release  : 17
+Release  : 18
 URL      : https://cpan.metacpan.org/authors/id/K/KM/KMACLEOD/Frontier-RPC-0.07b4.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/K/KM/KMACLEOD/Frontier-RPC-0.07b4.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libf/libfrontier-rpc-perl/libfrontier-rpc-perl_0.07b4-7.debian.tar.xz
@@ -117,8 +117,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/Apache/XMLRPC.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Frontier/Client.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Frontier/Daemon.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Frontier/RPC2.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Frontier/Responder.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Apache/XMLRPC.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Frontier/Client.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Frontier/Daemon.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Frontier/RPC2.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Frontier/Responder.pm
