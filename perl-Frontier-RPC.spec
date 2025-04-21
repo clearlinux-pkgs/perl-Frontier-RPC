@@ -7,7 +7,7 @@
 #
 Name     : perl-Frontier-RPC
 Version  : 0.07b4
-Release  : 36
+Release  : 37
 URL      : https://cpan.metacpan.org/authors/id/K/KM/KMACLEOD/Frontier-RPC-0.07b4.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/K/KM/KMACLEOD/Frontier-RPC-0.07b4.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libf/libfrontier-rpc-perl/libfrontier-rpc-perl_0.07b4-7.debian.tar.xz
